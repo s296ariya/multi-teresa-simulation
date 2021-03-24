@@ -1,0 +1,34 @@
+<form [formGroup]="form">
+    <div>
+        <label>
+            Number of Teresas
+        </label>
+        <label *ngFor="let numTeresaOption of numTeresaOptions">
+            <input
+                    formControlName="numTeresas"
+                    type="radio"
+                    name="numTeresas"
+                    [value]="numTeresaOption"
+                    (change)="numTeresaChange($event)"
+            />
+            {{numTeresaOption}}
+        </label>
+    </div>
+
+    <div formArrayName="teresas">
+        <div *ngFor="let teresa of teresas.controls; let i = index">
+            <div [formGroupName]="i">
+                Teresa #{{i + 1}}
+                <input type="checkbox" formControlName="useEnergyAccessory">Use Energy Accessory
+                <input type="checkbox" formControlName="useLeftE2Talent">Use Left E2 Talent
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <label>
+            Number of Rounds
+        </label>
+        <input type="number" formControlName="numRuns" min="1">
+    </div>
+</form>

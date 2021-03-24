@@ -1,0 +1,7 @@
+<h1>[S296]Ariya's Multi Teresa Simulation</h1>
+<setup></setup>
+<button (click)="runSimulation()">Run Simlulation</button>
+<div *ngFor="let count of result.counts; let i = index">
+    Number of runs with {{i}} enemies Sealed: {{ padLeft(count, result.numRuns) }}
+    ({{ count / result.numRuns * 100 | number:'2.4-4' }}%)
+</div>
